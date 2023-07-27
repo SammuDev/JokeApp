@@ -26,10 +26,11 @@ class HomeFragment: Fragment() {
 
         val categoryItemsList = mutableListOf<Category>()
 
-        categoryItemsList.add(Category("Categoria 1", "0xffface6e"))
-        categoryItemsList.add(Category("Categoria 2", "0xffecd16d"))
-        categoryItemsList.add(Category("Categoria 3", "0xffded36e"))
-        categoryItemsList.add(Category("Categoria 4", "0xffcfd571"))
+        categoryItemsList.add(Category("Categoria 1", 0xff6fc9e0))
+        categoryItemsList.add(Category("Categoria 2", 0xff57b7ce))
+        categoryItemsList.add(Category("Categoria 3", 0xff40a5bb))
+        categoryItemsList.add(Category("Categoria 4", 0xff2893a9))
+        categoryItemsList.add(Category("Categoria 5", 0xff108196))
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_main)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())

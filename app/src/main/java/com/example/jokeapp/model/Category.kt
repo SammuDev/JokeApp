@@ -7,5 +7,5 @@ import androidx.annotation.StringRes
 
 data class Category(
     val name: String,
-    val backgroundColor: String
+    val backgroundColor: Long
 )
