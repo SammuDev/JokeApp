@@ -10,8 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.jokeapp.R
 import com.example.jokeapp.model.Category
+import com.example.jokeapp.presentation.HomePresenter
 
-class HomeFragment: Fragment() {
+class HomeFragment : Fragment() {
+    private lateinit var presenter: HomePresenter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        presenter = HomePresenter()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,7 +33,6 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val categoryItemsList = mutableListOf<Category>()
-
         categoryItemsList.add(Category("Categoria 1", 0xff6fc9e0))
         categoryItemsList.add(Category("Categoria 2", 0xff57b7ce))
         categoryItemsList.add(Category("Categoria 3", 0xff40a5bb))
@@ -34,6 +41,9 @@ class HomeFragment: Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_main)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+        presenter.findAllCategories()
+
         val adapter = CategoryItem(categoryItemsList)
         recyclerView.adapter = adapter
 
